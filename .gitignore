@@ -74,3 +74,6 @@ local.properties
 # Maven stuff
 target/
 test-output/
+
+# Vagrant
+.vagrant/
