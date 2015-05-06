@@ -18,7 +18,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :ansible do |ansible|
     ansible.playbook = "./provisioning/system.yml"
     ansible.sudo = true
-    ansible.sudo_user = "vagrant"
+    ansible.ask_sudo_pass  = true
     ansible.verbose = "vv"
     ansible.extra_vars = { ansible_ssh_user: "vagrant" }
   end 
