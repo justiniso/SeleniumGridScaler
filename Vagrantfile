@@ -13,4 +13,14 @@ Vagrant.configure(2) do |config|
   config.vm.box = "hashicorp/precise64"
   config.vm.synced_folder "./selenium-grid-scaler", "/data"
 
+  config.vm.network :public_network
+
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = "./provisioning/system.yml"
+    ansible.sudo = true
+    ansible.sudo_user = "vagrant"
+    ansible.verbose = "vv"
+    ansible.extra_vars = { ansible_ssh_user: "vagrant" }
+  end 
+
 end
